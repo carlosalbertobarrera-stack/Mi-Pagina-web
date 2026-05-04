@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA y Robótica: El Futuro de la Autonomía</title>
+    <style>
+        /* Reset y Variables */
+        :root {
+            --primary-color: #00f2ff;
+            --secondary-color: #0051ff;
+            --bg-dark: #0a0a12;
+            --bg-card: #161623;
+            --text-light: #e0e0e0;
+            --text-muted: #a0a0b0;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(10, 10, 18, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Main Layout */
+        main {
+            padding-top: 80px; /* Offset for fixed header */
+        }
+
+        section {
+            padding: 4rem 10%;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 90vh;
+            background: linear-gradient(rgba(10, 10, 18, 0.7), rgba(10, 10, 18, 0.9)), 
+                        url('https://image.qwenlm.ai/public_source/cc538ff0-1ca8-4e63-a062-281813533b37/1c29ad46c-2130-4226-a201-fc175d7ccc7d.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+        }
+
+        #hero span {
+            color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--primary-color);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+
+        /* Grid Layouts */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .card h3 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Form Styles */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--primary-color);
+            color: var(--bg-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050508;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #222;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                font-size: 0.9rem;
+            }
+
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Semántico -->
+    <header>
+        <div class="logo">AI Robotics 🤖 Barrera</div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#conceptos">Conceptos</a></li>
+                <li><a href="#aplicaciones">Aplicaciones</a></li>
+                <li><a href="#etica">Ética</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección Hero -->
+        <section id="hero">
+            <h1>La Convergencia de la <br><span>Inteligencia Artificial</span> y la Robótica</h1>
+            <p>Explorando cómo los algoritmos cognitivos están dando vida a las máquinas.</p>
+            <a href="#conceptos" class="btn">Descubrir Más 👁‍🗨</a>
+        </section>
+
+        <!-- Sección Conceptos Fundamentales -->
+        <section id="conceptos">
+            <h2>Fundamentos Tecnológicos</h2>
+            <div class="grid-container">
+                <article class="card">
+                    <h3>Aprendizaje Automático (Machine Learning) 🦾</h3>
+                    <p>Es la base que permite a los robots aprender de datos en lugar de ser programados explícitamente para cada tarea. Mediante redes neuronales, los robots pueden reconocer patrones, objetos y entornos complejos.</p>
+                </article>
+                <article class="card">
+                    <h3>Visión por Computadora 💻</h3>
+                    <p>Permite a los sistemas robóticos interpretar información visual del mundo real. Utilizando cámaras y sensores LiDAR, los robots construyen mapas tridimensionales y navegan de forma autónoma.</p>
+                </article>
+                <article class="card">
+                    <h3>Procesamiento del Lenguaje Natural (NLP) 🤖</h3>
+                    <p>Facilita la interacción humano-robot. Gracias al NLP, los robots pueden comprender comandos de voz, mantener conversaciones contextuales y asistir en tareas colaborativas de manera intuitiva.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sección Aplicaciones -->
+        <section id="aplicaciones">
+            <h2>Campos de Aplicación</h2>
+            <div class="grid-container">
+                <article class="card">
+                    <h3>Robótica Médica</h3>
+                    <p>Los sistemas quirúrgicos asistidos por IA permiten procedimientos de alta precisión con incisiones mínimas. Además, los exoesqueletos inteligentes ayudan en la rehabilitación física adaptándose al progreso del paciente.</p>
+                </article>
+                <article class="card">
+                    <h3>Logística y Almacenamiento</h3>
+                    <p>En los centros de distribución modernos, enjambres de robots autónomos optimizan rutas en tiempo real para mover mercancías, reduciendo errores humanos y aumentando la velocidad de entrega exponencialmente.</p>
+                </article>
+                <article class="card">
+                    <h3>Agricultura de Precisión</h3>
+                    <p>Drones y robots terrestres utilizan IA para monitorear la salud de los cultivos, identificar malas hierbas y aplicar fertilizantes solo donde es necesario, promoviendo una agricultura sostenible y eficiente.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sección Ética y Futuro -->
+        <section id="etica">
+            <h2>Desafíos Éticos y Futuros</h2>
+            <p>La integración de la inteligencia artificial en la robótica plantea preguntas fundamentales sobre la responsabilidad y el impacto social. A medida que los sistemas se vuelven más autónomos, surge el debate sobre la toma de decisiones críticas sin supervisión humana directa.</p>
+            <p>Es crucial desarrollar marcos regulatorios que aseguren que la robótica avanzada se utilice para potenciar las capacidades humanas y mejorar la calidad de vida, evitando sesgos algorítmicos y garantizando la seguridad en la interacción físico-digital.</p>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <div class="form-container">
+                <form action="mailto:carlos.barrera23@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo:</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu consulta sobre IA y Robótica..."></textarea>
+                    </div>
+                    <button type="submit">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Semántico -->
+    <footer>
+        <p>&copy; 2026 Portal de Inteligencia Artificial y Robótica. Todos los derechos reservados.</p>
+        <p>Diseñado con fines educativos e informativos.</p>
+    </footer>
+
+</body>
+</html>
+
